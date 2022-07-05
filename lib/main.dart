@@ -102,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            TestStateFulWidget(_counter),
           ],
         ),
       ),
@@ -112,4 +113,39 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+// ignore: must_be_immutable
+class TestStateFulWidget extends StatefulWidget{
+
+   int count;
+   TestStateFulWidget(this.count,{Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState(){
+    return _TestState();
+  }
+
+}
+
+class _TestState extends State<TestStateFulWidget>{
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Text("${widget.count}");
+  }
+
+  @override
+  void initState() {
+    print("initState");
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant TestStateFulWidget oldWidget) {
+    print("didUpdateWidget");
+    super.didUpdateWidget(oldWidget);
+  }
+
 }
